@@ -7,9 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Glightbox for image lightbox -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glow/1.4.1/glow.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glow/1.4.1/glow.min.js"></script>
+    <!-- Lightbox (fslightbox) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fslightbox@3.4.1/index.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fslightbox@3.4.1/index.min.js"></script>
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .glass-panel { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
@@ -17,10 +17,9 @@
         .text-gradient { background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-image: linear-gradient(90deg, #38bdf8, #818cf8); }
         .img-hover { transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
         .img-hover:hover { transform: scale(1.05); }
-        /* Lightbox styles */
-        .glow-overlay { transition: opacity 0.3s ease; }
-        .glow-overlay.glow-open { opacity: 1; }
-        .glow-overlay.glow-closed { opacity: 0; }
+        /* Modal styles */
+        .modal { display: none; }
+        .modal.active { display: flex; }
         /* Form validation styles */
         .invalid { border-color: #ef4444; }
         .valid { border-color: #10b981; }
@@ -55,7 +54,7 @@
                 <a href="#ket-cau" class="hover:text-white transition">Cấu Trúc</a>
                 <a href="#thu-vien" class="hover:text-white transition">Thư Viện</a>
             </div>
-            <button class="bg-primary hover:bg-sky-400 text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg shadow-sky-500/30" onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'})">
+            <button class="bg-primary hover:bg-sky-400 text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg shadow-sky-500/30" onclick="document.getElementById('contact-modal').classList.add('active')">
                 Nhận Báo Giá
             </button>
         </div>
@@ -126,14 +125,18 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div class="rounded-4xl overflow-hidden h-[400px] relative group cursor-pointer">
-                    <img src="assets/04-pb-birdview-tu-vinh.jpg" class="w-full h-full object-cover img-hover" alt="View from Bay">
+                    <a href="assets/04-pb-birdview-tu-vinh.jpg" data-fslightbox="gallery">
+                        <img src="assets/04-pb-birdview-tu-vinh.jpg" class="w-full h-full object-cover img-hover" alt="View from Bay">
+                    </a>
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
                     <div class="absolute bottom-6 left-6">
                         <div class="text-xl font-bold text-white">Tầm Nhìn Vịnh Di Sản</div>
                     </div>
                 </div>
                 <div class="rounded-4xl overflow-hidden h-[400px] relative group cursor-pointer">
-                    <img src="assets/02-pc-birdview-tu-vinh-vao.jpg" class="w-full h-full object-cover img-hover" alt="Birdview">
+                    <a href="assets/02-pc-birdview-tu-vinh-vao.jpg" data-fslightbox="gallery">
+                        <img src="assets/02-pc-birdview-tu-vinh-vao.jpg" class="w-full h-full object-cover img-hover" alt="Birdview">
+                    </a>
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
                     <div class="absolute bottom-6 left-6">
                         <div class="text-xl font-bold text-white">Toàn Cảnh Bán Đảo 1</div>
@@ -142,14 +145,20 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="rounded-4xl overflow-hidden h-[300px] relative group">
-                    <img src="assets/06-pb-cong-chao.jpg" class="w-full h-full object-cover img-hover" alt="Gate">
+                <div class="rounded-4xl overflow-hidden h-[300px] relative group cursor-pointer">
+                    <a href="assets/06-pb-cong-chao.jpg" data-fslightbox="gallery">
+                        <img src="assets/06-pb-cong-chao.jpg" class="w-full h-full object-cover img-hover" alt="Gate">
+                    </a>
                 </div>
-                <div class="rounded-4xl overflow-hidden h-[300px] relative group">
-                    <img src="assets/05-pb-tam-view-huong-vinh.jpg" class="w-full h-full object-cover img-hover" alt="View">
+                <div class="rounded-4xl overflow-hidden h-[300px] relative group cursor-pointer">
+                    <a href="assets/05-pb-tam-view-huong-vinh.jpg" data-fslightbox="gallery">
+                        <img src="assets/05-pb-tam-view-huong-vinh.jpg" class="w-full h-full object-cover img-hover" alt="View">
+                    </a>
                 </div>
-                <div class="rounded-4xl overflow-hidden h-[300px] relative group">
-                    <img src="assets/07-pb-birdview-tu-hqv.jpg" class="w-full h-full object-cover img-hover" alt="HQV View">
+                <div class="rounded-4xl overflow-hidden h-[300px] relative group cursor-pointer">
+                    <a href="assets/07-pb-birdview-tu-hqv.jpg" data-fslightbox="gallery">
+                        <img src="assets/07-pb-birdview-tu-hqv.jpg" class="w-full h-full object-cover img-hover" alt="HQV View">
+                    </a>
                 </div>
             </div>
         </div>
@@ -166,8 +175,10 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Tầng 1 -->
                 <div class="glass-panel p-6 rounded-4xl group">
-                    <div class="rounded-3xl overflow-hidden mb-6 bg-white">
-                        <img src="assets/mbt1-ma-can.jpg" class="w-full h-auto img-hover mix-blend-multiply" alt="Mặt bằng tầng 1">
+                    <div class="rounded-3xl overflow-hidden mb-6 bg-white cursor-pointer">
+                        <a href="assets/mbt1-ma-can.jpg" data-fslightbox="gallery">
+                            <img src="assets/mbt1-ma-can.jpg" class="w-full h-auto img-hover mix-blend-multiply" alt="Mặt bằng tầng 1">
+                        </a>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-2">Mặt Bằng Tầng 1</h3>
                     <p class="text-slate-400">Khu vực sảnh đón, tiện ích và thương mại dịch vụ</p>
@@ -175,8 +186,10 @@
                 
                 <!-- Tầng 3 -->
                 <div class="glass-panel p-6 rounded-4xl group">
-                    <div class="rounded-3xl overflow-hidden mb-6 bg-white">
-                        <img src="assets/mbt3-ma-can.jpg" class="w-full h-auto img-hover mix-blend-multiply" alt="Mặt bằng tầng 3">
+                    <div class="rounded-3xl overflow-hidden mb-6 bg-white cursor-pointer">
+                        <a href="assets/mbt3-ma-can.jpg" data-fslightbox="gallery">
+                            <img src="assets/mbt3-ma-can.jpg" class="w-full h-auto img-hover mix-blend-multiply" alt="Mặt bằng tầng 3">
+                        </a>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-2">Mặt Bằng Tầng 3</h3>
                     <p class="text-slate-400">Không gian căn hộ và tiện ích khối đế</p>
@@ -184,8 +197,10 @@
 
                 <!-- Tầng 5 -->
                 <div class="glass-panel p-6 rounded-4xl group">
-                    <div class="rounded-3xl overflow-hidden mb-6 bg-white">
-                        <img src="assets/mbt5-new.jpg" class="w-full h-auto img-hover mix-blend-multiply" alt="Mặt bằng tầng 5">
+                    <div class="rounded-3xl overflow-hidden mb-6 bg-white cursor-pointer">
+                        <a href="assets/mbt5-new.jpg" data-fslightbox="gallery">
+                            <img src="assets/mbt5-new.jpg" class="w-full h-auto img-hover mix-blend-multiply" alt="Mặt bằng tầng 5">
+                        </a>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-2">Mặt Bằng Tầng 5</h3>
                     <p class="text-slate-400">Tầng tiện ích trên cao và hồ bơi ngoài trời</p>
@@ -193,8 +208,10 @@
 
                 <!-- Tầng 6-30 -->
                 <div class="glass-panel p-6 rounded-4xl group">
-                    <div class="rounded-3xl overflow-hidden mb-6 bg-white">
-                        <img src="assets/mbt6-30-new.jpg" class="w-full h-auto img-hover mix-blend-multiply" alt="Mặt bằng tầng 6-30">
+                    <div class="rounded-3xl overflow-hidden mb-6 bg-white cursor-pointer">
+                        <a href="assets/mbt6-30-new.jpg" data-fslightbox="gallery">
+                            <img src="assets/mbt6-30-new.jpg" class="w-full h-auto img-hover mix-blend-multiply" alt="Mặt bằng tầng 6-30">
+                        </a>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-2">Mặt Bằng Tầng 6-30</h3>
                     <p class="text-slate-400">Tầng căn hộ điển hình với tầm nhìn panorama</p>
@@ -222,6 +239,44 @@
             </form>
         </div>
     </section>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] items-center justify-center p-4">
+        <div class="glass-panel rounded-4xl max-w-md w-full p-8 relative">
+            <button onclick="document.getElementById('contact-modal').classList.remove('active')" class="absolute top-4 right-4 text-white hover:text-primary text-3xl">&times;</button>
+            <h3 class="text-2xl font-bold text-white mb-2">Đăng Ký Nhận Thông Tin</h3>
+            <p class="text-slate-400 mb-6">Để lại thông tin để nhận trọn bộ tài liệu dự án</p>
+            <form id="contact-form" class="space-y-4" onsubmit="return handleSubmit(event)">
+                <input type="text" id="name" placeholder="Họ và tên" required class="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 focus:outline-none focus:border-primary text-white">
+                <input type="tel" id="phone" placeholder="Số điện thoại" required pattern="[0-9]{10,11}" class="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 focus:outline-none focus:border-primary text-white">
+                <input type="email" id="email" placeholder="Email (tùy chọn)" class="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 focus:outline-none focus:border-primary text-white">
+                <button type="submit" class="w-full bg-primary text-white px-6 py-4 rounded-2xl font-bold hover:bg-sky-400 transition">Gửi Thông Tin</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            
+            // Hiển thị thông báo thành công
+            alert(`Cảm ơn ${name}! Chúng tôi sẽ liên hệ với bạn qua số ${phone} trong thời gian sớm nhất.`);
+            
+            // Đóng modal
+            document.getElementById('contact-modal').classList.remove('active');
+            
+            // Reset form
+            document.getElementById('contact-form').reset();
+            
+            // TODO: Gửi data lên server/webhook
+            console.log('Form data:', { name, phone, email });
+            
+            return false;
+        }
+    </script>
 
 </body>
 </html>
