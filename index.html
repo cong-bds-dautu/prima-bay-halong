@@ -7,9 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Lightbox (fslightbox) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fslightbox@3.4.1/index.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/fslightbox@3.4.1/index.min.js"></script>
+    <!-- GLightbox for image lightbox -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .glass-panel { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
@@ -39,6 +39,23 @@
                 }
             }
         }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Khởi tạo GLightbox
+            const lightbox = GLightbox({
+                selector: 'a.glightbox',
+                touchNavigation: true,
+                loop: true,
+                autoplayVideos: false
+            });
+            
+            // Thêm class glightbox vào tất cả các link ảnh
+            document.querySelectorAll('a[href*=".jpg"]').forEach(link => {
+                if (link.href.includes('assets/')) {
+                    link.classList.add('glightbox');
+                }
+            });
+        });
     </script>
 </head>
 <body class="bg-slate-900 text-slate-100 antialiased overflow-x-hidden">
