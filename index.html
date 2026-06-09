@@ -20,6 +20,10 @@
         /* Modal styles */
         .modal { display: none; }
         .modal.active { display: flex; }
+        
+        /* GLightbox custom z-index to ensure it sits on top */
+        .glightbox-container { z-index: 999999 !important; }
+        
         /* Form validation styles */
         .invalid { border-color: #ef4444; }
         .valid { border-color: #10b981; }
@@ -273,23 +277,54 @@
     </div>
 
     <script>
-        function handleSubmit(e) {
+        async function handleSubmit(e) {
             e.preventDefault();
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
             
-            // Hiển thị thông báo thành công
-            alert(`Cảm ơn ${name}! Chúng tôi sẽ liên hệ với bạn qua số ${phone} trong thời gian sớm nhất.`);
+            if (!name || !phone) {
+                alert('Vui lòng điền đầy đủ họ tên và số điện thoại!');
+                return false;
+            }
             
-            // Đóng modal
-            document.getElementById('contact-modal').classList.remove('active');
+            // Show loading
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Đang gửi...';
+            submitBtn.disabled = true;
             
-            // Reset form
-            document.getElementById('contact-form').reset();
-            
-            // TODO: Gửi data lên server/webhook
-            console.log('Form data:', { name, phone, email });
+            try {
+                const response = await fetch('submit-form.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, phone, email })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Hiển thị thông báo thành công
+                    alert(`Cảm ơn ${name}! Chúng tôi sẽ liên hệ với bạn qua số ${phone} trong thời gian sớm nhất.`);
+                    
+                    // Đóng modal
+                    document.getElementById('contact-modal').classList.remove('active');
+                    
+                    // Reset form
+                    document.getElementById('contact-form').reset();
+                } else {
+                    alert('Có lỗi xảy ra: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Có lỗi kết nối, vui lòng thử lại sau!');
+            } finally {
+                // Restore button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
             
             return false;
         }
