@@ -71,8 +71,9 @@ function loadCustomers() {
                     <textarea 
                         class="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 focus:border-sky-400 focus:outline-none text-sm resize-none"
                         rows="2"
-                        oninput="updateNote('${customer.id}', this.value)"
                         placeholder="Ghi chú..."
+                        data-id="${customer.id}"
+                        onblur="updateNote(event)"
                     >${escapeHtml(customer.note || '')}</textarea>
                 </td>
                 <td class="px-6 py-4">
@@ -99,8 +100,14 @@ function loadCustomers() {
     });
 }
 
-// Cập nhật ghi chú
-async function updateNote(customerId, note) {
+// Cập nhật ghi chú khi blur (thay vì mỗi lần oninput)
+async function updateNote(event) {
+    const textarea = event.target;
+    const customerId = textarea.dataset.id;
+    const note = textarea.value;
+    
+    if (!customerId) return;
+    
     try {
         await db.ref(`customers/${customerId}/note`).set(note);
         console.log('Updated note for', customerId);
