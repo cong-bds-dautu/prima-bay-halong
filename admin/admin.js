@@ -12,63 +12,77 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
 const db = firebase.database();
 
-// Login credentials của ba
-const ADMIN_EMAIL = "congnt1605@gmail.com";
+// Admin credentials - so sánh trực tiếp
+const ADMIN_USERNAME = "congnt1605";
 const ADMIN_PASSWORD = "Cn160520";
 
-let currentUser = null;
 let customersRef = null;
 
 // DOM Elements
 const loginModal = document.getElementById('login-modal');
 const loginForm = document.getElementById('login-form');
 const loginError = document.getElementById('login-error');
+const adminHeader = document.getElementById('admin-header');
+const statsCards = document.getElementById('stats-cards');
+const customersContainer = document.getElementById('customers-container');
 const customersTable = document.getElementById('customers-table');
 const totalCustomersEl = document.getElementById('total-customers');
 const calledCustomersEl = document.getElementById('called-customers');
 const pendingCustomersEl = document.getElementById('pending-customers');
 
-// Kiểm tra xem đã login chưa khi tải trang
-auth.onAuthStateChanged(user => {
-    if (user) {
-        currentUser = user;
-        loginModal.style.display = 'none';
-        loadCustomers();
-    } else {
-        loginModal.style.display = 'flex';
-    }
-});
+// Check session storage for login status
+const storedUsername = sessionStorage.getItem('adminUsername');
+const storedPassword = sessionStorage.getItem('adminPassword');
+
+if (storedUsername === ADMIN_USERNAME && storedPassword === ADMIN_PASSWORD) {
+    loginModal.style.display = 'none';
+    adminHeader.style.display = 'flex';
+    statsCards.style.display = 'grid';
+    customersContainer.style.display = 'block';
+    loadCustomers();
+} else {
+    loginModal.style.display = 'flex';
+}
 
 // Xử lý login
-loginForm.addEventListener('submit', async (e) => {
+loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const email = document.getElementById('login-email').value.trim();
+    const username = document.getElementById('login-username').value.trim();
     const password = document.getElementById('login-password').value.trim();
     
     loginError.classList.add('hidden');
     
-    try {
-        await auth.signInWithEmailAndPassword(email, password);
+    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+        // Lưu vào session
+        sessionStorage.setItem('adminUsername', username);
+        sessionStorage.setItem('adminPassword', password);
+        
         loginModal.style.display = 'none';
+        adminHeader.style.display = 'flex';
+        statsCards.style.display = 'grid';
+        customersContainer.style.display = 'block';
         loadCustomers();
-    } catch (error) {
-        loginError.textContent = 'Email hoặc mật khẩu không đúng!';
+    } else {
+        loginError.textContent = 'Sai username hoặc mật khẩu!';
         loginError.classList.remove('hidden');
-        console.error('Login error:', error);
     }
 });
 
 // Logout
 function logout() {
-    auth.signOut();
+    sessionStorage.removeItem('adminUsername');
+    sessionStorage.removeItem('adminPassword');
+    location.reload();
 }
 
 // Đọc danh sách khách hàng từ Firebase
 function loadCustomers() {
-    customersRef = db.ref('customers');
+    if (!customersRef) {
+        customersRef = db.ref('customers');
+    }
+    
     customersRef.on('value', snapshot => {
         const customers = snapshot.val();
         if (!customers) {
@@ -84,7 +98,7 @@ function loadCustomers() {
         }));
         
         // Sắp xếp theo thời gian (mới nhất lên đầu)
-        customersArray.sort((a, b) => b.timestamp - a.timestamp);
+        customersArray.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
         
         // Render bảng
         customersTable.innerHTML = customersArray.map(customer => `
@@ -105,10 +119,10 @@ function loadCustomers() {
                 </td>
                 <td class="px-6 py-4">
                     <button 
-                        onclick="toggleCalled('${customer.id}', ${customer.called})"
-                        class="${customer.called ? 'called-true' : 'called-false'} text-white px-4 py-2 rounded-xl font-medium transition flex items-center gap-2"
+                        onclick="toggleCalled('${customer.id}', ${customer.called || false})"
+                        class="${(customer.called || false) ? 'called-true' : 'called-false'} text-white px-4 py-2 rounded-xl font-medium transition flex items-center gap-2"
                     >
-                        ${customer.called ? '✓ Đã gọi' : '⬜ Chưa gọi'}
+                        ${(customer.called || false) ? '✓ Đã gọi' : '⬜ Chưa gọi'}
                     </button>
                 </td>
                 <td class="px-6 py-4">
@@ -177,13 +191,5 @@ function escapeHtml(text) {
 
 // Auto-refresh mỗi 30 giây
 setInterval(() => {
-    console.log('Auto-refreshing data...');
     loadCustomers();
 }, 30000);
-
-// Thêm nút hidden cho auto-refresh
-const refreshBtn = document.createElement('button');
-refreshBtn.id = 'refresh-btn';
-refreshBtn.style.display = 'none';
-refreshBtn.onclick = () => loadCustomers();
-document.body.appendChild(refreshBtn);
