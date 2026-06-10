@@ -1,4 +1,4 @@
-// Firebase configuration - phải giống với index.html
+// Firebase configuration - ba đã cung cấp
 const firebaseConfig = {
     apiKey: "AIzaSyBJOXRce0Og0Wxi5D98giQzOd1TMXNIyHM",
     authDomain: "prima-bay-halong.firebaseapp.com",
@@ -14,74 +14,32 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
-// Admin credentials - so sánh trực tiếp
-const ADMIN_USERNAME = "congnt1605";
+// Admin password - chỉ ba biết
 const ADMIN_PASSWORD = "Cn160520";
 
-let customersRef = null;
-
 // DOM Elements
-const loginModal = document.getElementById('login-modal');
-const loginForm = document.getElementById('login-form');
-const loginError = document.getElementById('login-error');
-const adminHeader = document.getElementById('admin-header');
-const statsCards = document.getElementById('stats-cards');
-const customersContainer = document.getElementById('customers-container');
 const customersTable = document.getElementById('customers-table');
 const totalCustomersEl = document.getElementById('total-customers');
 const calledCustomersEl = document.getElementById('called-customers');
 const pendingCustomersEl = document.getElementById('pending-customers');
 
-// Check session storage for login status
-const storedUsername = sessionStorage.getItem('adminUsername');
-const storedPassword = sessionStorage.getItem('adminPassword');
-
-if (storedUsername === ADMIN_USERNAME && storedPassword === ADMIN_PASSWORD) {
-    loginModal.style.display = 'none';
-    adminHeader.style.display = 'flex';
-    statsCards.style.display = 'grid';
-    customersContainer.style.display = 'block';
-    loadCustomers();
-} else {
-    loginModal.style.display = 'flex';
-}
-
-// Xử lý login
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const username = document.getElementById('login-username').value.trim();
-    const password = document.getElementById('login-password').value.trim();
-    
-    loginError.classList.add('hidden');
-    
-    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
-        // Lưu vào session
-        sessionStorage.setItem('adminUsername', username);
-        sessionStorage.setItem('adminPassword', password);
-        
-        loginModal.style.display = 'none';
-        adminHeader.style.display = 'flex';
-        statsCards.style.display = 'grid';
-        customersContainer.style.display = 'block';
+// Kiểm tra password khi trang được load
+function checkPassword() {
+    const password = prompt("Nhập mật khẩu Admin để truy cập:");
+    if (password === ADMIN_PASSWORD) {
         loadCustomers();
-    } else {
-        loginError.textContent = 'Sai username hoặc mật khẩu!';
-        loginError.classList.remove('hidden');
+    } else if (password !== null) {
+        alert("Sai mật khẩu!");
+        location.href = "/";
     }
-});
-
-// Logout
-function logout() {
-    sessionStorage.removeItem('adminUsername');
-    sessionStorage.removeItem('adminPassword');
-    location.reload();
 }
+
+// Gọi check password khi trang load
+checkPassword();
 
 // Đọc danh sách khách hàng từ Firebase
 function loadCustomers() {
-    if (!customersRef) {
-        customersRef = db.ref('customers');
-    }
+    const customersRef = db.ref('customers');
     
     customersRef.on('value', snapshot => {
         const customers = snapshot.val();
