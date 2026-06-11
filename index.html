@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRIMA BAY HALONG - Tầm Nhìn Đa Lớp, Nâng Tầm Chuẩn Sống</title>
+    <meta name="description" content="Prima Bay Hạ Long - căn hộ cao cấp DV2 & DV3 tại Halong Marina, mặt tiền Hoàng Quốc Việt. Studio, 1PN, 2PN, 3PN, Duplex, Boutique Hotel & Shoplot. Nhận bảng giá, chính sách bán hàng và tài liệu dự án mới nhất từ Trung Thực Land.">
+    <meta name="keywords" content="Prima Bay Hạ Long, Prima Bay Halong, căn hộ Hạ Long, Halong Marina, BIM Land, BIM Group, Trung Thực Land, bảng giá Prima Bay, chính sách bán hàng Prima Bay, căn hộ Studio Hạ Long, Boutique Hotel Prima Bay, Shoplot Prima Bay">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://cong-bds-dautu.github.io/prima-bay-halong/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="og:title" content="Prima Bay Hạ Long - Bảng Giá & Chính Sách Mới Nhất | Trung Thực Land">
+    <meta property="og:description" content="Khám phá Prima Bay Hạ Long: vị trí Halong Marina, mặt bằng, sản phẩm Studio/1PN/2PN/3PN/Duplex, tiện ích hấp dẫn, video và tài liệu bán hàng chính thức.">
+    <meta property="og:url" content="https://cong-bds-dautu.github.io/prima-bay-halong/">
+    <meta property="og:image" content="https://cong-bds-dautu.github.io/prima-bay-halong/assets/01-pb-overview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prima Bay Hạ Long - Bảng Giá & Chính Sách Mới Nhất">
+    <meta name="twitter:description" content="Website thông tin Prima Bay Hạ Long: tổng quan, video, mặt bằng, sản phẩm, tiện ích, hình ảnh thực tế và form nhận tài liệu.">
+    <meta name="twitter:image" content="https://cong-bds-dautu.github.io/prima-bay-halong/assets/01-pb-overview.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,6 +28,30 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateListing",
+      "name": "Prima Bay Hạ Long",
+      "description": "Căn hộ cao cấp Prima Bay Hạ Long tại Halong Marina, phát triển bởi BIM Land - thành viên BIM Group, phân phối bởi Trung Thực Land.",
+      "url": "https://cong-bds-dautu.github.io/prima-bay-halong/",
+      "image": "https://cong-bds-dautu.github.io/prima-bay-halong/assets/01-pb-overview.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Hoàng Quốc Việt, Halong Marina",
+        "addressLocality": "Hạ Long",
+        "addressRegion": "Quảng Ninh",
+        "addressCountry": "VN"
+      },
+      "seller": {
+        "@type": "Organization",
+        "name": "Trung Thực Land",
+        "email": "congnt@trungthucland.vn",
+        "telephone": "0914479692"
+      }
+    }
+    </script>
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .glass-panel { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
@@ -195,8 +233,8 @@
             </div>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button onclick="document.getElementById('video-modal').classList.add('active')" class="w-full sm:w-auto bg-white text-slate-900 px-8 py-4 rounded-full font-semibold hover:bg-slate-100 transition shadow-xl">Khám Phá Dự Án</button>
-                <button class="w-full sm:w-auto glass-panel text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition">
-                    Tải File Trình Chiếu (PDF)
+                <button onclick="document.getElementById('contact-modal').classList.add('active')" class="w-full sm:w-auto glass-panel text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition">
+                    Đăng Ký Nhận Tài Liệu
                 </button>
             </div>
         </div>
@@ -600,20 +638,20 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div class="rounded-4xl overflow-hidden h-[400px] relative group cursor-pointer">
-                    <a href="assets/04-pb-birdview-tu-vinh.jpg" class="glightbox" data-fslightbox="gallery">
+                    <a href="assets/04-pb-birdview-tu-vinh.jpg" class="glightbox">
                         <img src="assets/04-pb-birdview-tu-vinh.jpg" class="w-full h-full object-cover img-hover" alt="View from Bay">
                     </a>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
-                    <div class="absolute bottom-6 left-6">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+                    <div class="absolute bottom-6 left-6 pointer-events-none">
                         <div class="text-xl font-bold text-white">Tầm Nhìn Vịnh Di Sản</div>
                     </div>
                 </div>
                 <div class="rounded-4xl overflow-hidden h-[400px] relative group cursor-pointer">
-                    <a href="assets/02-pc-birdview-tu-vinh-vao.jpg" class="glightbox" data-fslightbox="gallery">
+                    <a href="assets/02-pc-birdview-tu-vinh-vao.jpg" class="glightbox">
                         <img src="assets/02-pc-birdview-tu-vinh-vao.jpg" class="w-full h-full object-cover img-hover" alt="Birdview">
                     </a>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
-                    <div class="absolute bottom-6 left-6">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+                    <div class="absolute bottom-6 left-6 pointer-events-none">
                         <div class="text-xl font-bold text-white">Toàn Cảnh Bán Đảo 1</div>
                     </div>
                 </div>
@@ -621,17 +659,17 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="rounded-4xl overflow-hidden h-[300px] relative group cursor-pointer">
-                    <a href="assets/06-pb-cong-chao.jpg" class="glightbox" data-fslightbox="gallery">
+                    <a href="assets/06-pb-cong-chao.jpg" class="glightbox">
                         <img src="assets/06-pb-cong-chao.jpg" class="w-full h-full object-cover img-hover" alt="Gate">
                     </a>
                 </div>
                 <div class="rounded-4xl overflow-hidden h-[300px] relative group cursor-pointer">
-                    <a href="assets/05-pb-tam-view-huong-vinh.jpg" class="glightbox" data-fslightbox="gallery">
+                    <a href="assets/05-pb-tam-view-huong-vinh.jpg" class="glightbox">
                         <img src="assets/05-pb-tam-view-huong-vinh.jpg" class="w-full h-full object-cover img-hover" alt="View">
                     </a>
                 </div>
                 <div class="rounded-4xl overflow-hidden h-[300px] relative group cursor-pointer">
-                    <a href="assets/07-pb-birdview-tu-hqv.jpg" class="glightbox" data-fslightbox="gallery">
+                    <a href="assets/07-pb-birdview-tu-hqv.jpg" class="glightbox">
                         <img src="assets/07-pb-birdview-tu-hqv.jpg" class="w-full h-full object-cover img-hover" alt="HQV View">
                     </a>
                 </div>
@@ -716,7 +754,7 @@
                 <!-- Tầng 1 -->
                 <div class="glass-panel p-6 rounded-4xl group">
                     <div class="rounded-3xl overflow-hidden mb-6 bg-white cursor-pointer">
-                        <a href="assets/mbt1-ma-can.jpg" data-fslightbox="gallery">
+                        <a href="assets/mbt1-ma-can.jpg" class="glightbox">
                             <img src="assets/mbt1-ma-can.jpg" class="w-full h-auto img-hover mix-blend-multiply" alt="Mặt bằng tầng 1">
                         </a>
                     </div>
@@ -727,7 +765,7 @@
                 <!-- Tầng 3 -->
                 <div class="glass-panel p-6 rounded-4xl group">
                     <div class="rounded-3xl overflow-hidden mb-6 bg-white cursor-pointer">
-                        <a href="assets/mbt3-ma-can.jpg" data-fslightbox="gallery">
+                        <a href="assets/mbt3-ma-can.jpg" class="glightbox">
                             <img src="assets/mbt3-ma-can.jpg" class="w-full h-auto img-hover mix-blend-multiply" alt="Mặt bằng tầng 3">
                         </a>
                     </div>
@@ -738,7 +776,7 @@
                 <!-- Tầng 5 -->
                 <div class="glass-panel p-6 rounded-4xl group">
                     <div class="rounded-3xl overflow-hidden mb-6 bg-white cursor-pointer">
-                        <a href="assets/mbt5-new.jpg" data-fslightbox="gallery">
+                        <a href="assets/mbt5-new.jpg" class="glightbox">
                             <img src="assets/mbt5-new.jpg" class="w-full h-auto img-hover mix-blend-multiply" alt="Mặt bằng tầng 5">
                         </a>
                     </div>
@@ -749,7 +787,7 @@
                 <!-- Tầng 6-30 -->
                 <div class="glass-panel p-6 rounded-4xl group">
                     <div class="rounded-3xl overflow-hidden mb-6 bg-white cursor-pointer">
-                        <a href="assets/mbt6-30-new.jpg" data-fslightbox="gallery">
+                        <a href="assets/mbt6-30-new.jpg" class="glightbox">
                             <img src="assets/mbt6-30-new.jpg" class="w-full h-auto img-hover mix-blend-multiply" alt="Mặt bằng tầng 6-30">
                         </a>
                     </div>
@@ -936,29 +974,29 @@
             <!-- Ảnh Tài Liệu -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 <div class="rounded-4xl overflow-hidden relative group cursor-pointer">
-                    <a href="assets/ttl-document/bang-gia.jpg" data-fslightbox="ttl-gallery">
+                    <a href="assets/ttl-document/bang-gia.jpg" class="glightbox">
                         <img src="assets/ttl-document/bang-gia.jpg" class="w-full h-64 object-cover group-hover:scale-105 transition" alt="Bảng giá">
                     </a>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
+                    <div class="absolute bottom-4 left-4 pointer-events-none">
                         <div class="text-white font-medium">📄 Bảng Giá</div>
                     </div>
                 </div>
                 <div class="rounded-4xl overflow-hidden relative group cursor-pointer">
-                    <a href="assets/ttl-document/chinh-sach-ban-hang.jpg" data-fslightbox="ttl-gallery">
+                    <a href="assets/ttl-document/chinh-sach-ban-hang.jpg" class="glightbox">
                         <img src="assets/ttl-document/chinh-sach-ban-hang.jpg" class="w-full h-64 object-cover group-hover:scale-105 transition" alt="Chính sách">
                     </a>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
+                    <div class="absolute bottom-4 left-4 pointer-events-none">
                         <div class="text-white font-medium">📋 Chính Sách Bán Hàng</div>
                     </div>
                 </div>
                 <div class="rounded-4xl overflow-hidden relative group cursor-pointer">
-                    <a href="assets/ttl-document/thong-tin-tong-quan.jpg" data-fslightbox="ttl-gallery">
+                    <a href="assets/ttl-document/thong-tin-tong-quan.jpg" class="glightbox">
                         <img src="assets/ttl-document/thong-tin-tong-quan.jpg" class="w-full h-64 object-cover group-hover:scale-105 transition" alt="Thông tin">
                     </a>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
+                    <div class="absolute bottom-4 left-4 pointer-events-none">
                         <div class="text-white font-medium">📊 Thông Tin Tổng Quan</div>
                     </div>
                 </div>
@@ -970,42 +1008,42 @@
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="rounded-3xl overflow-hidden relative group cursor-pointer">
-                    <a href="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0093.JPG" data-fslightbox="ttl-gallery">
+                    <a href="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0093.JPG" class="glightbox">
                         <img src="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0093.JPG" class="w-full h-48 object-cover group-hover:scale-105 transition" alt="Thực tế 1">
                     </a>
                 </div>
                 <div class="rounded-3xl overflow-hidden relative group cursor-pointer">
-                    <a href="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0094.JPG" data-fslightbox="ttl-gallery">
+                    <a href="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0094.JPG" class="glightbox">
                         <img src="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0094.JPG" class="w-full h-48 object-cover group-hover:scale-105 transition" alt="Thực tế 2">
                     </a>
                 </div>
                 <div class="rounded-3xl overflow-hidden relative group cursor-pointer">
-                    <a href="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0097.JPG" data-fslightbox="ttl-gallery">
+                    <a href="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0097.JPG" class="glightbox">
                         <img src="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0097.JPG" class="w-full h-48 object-cover group-hover:scale-105 transition" alt="Thực tế 3">
                     </a>
                 </div>
                 <div class="rounded-3xl overflow-hidden relative group cursor-pointer">
-                    <a href="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0098.JPG" data-fslightbox="ttl-gallery">
+                    <a href="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0098.JPG" class="glightbox">
                         <img src="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0098.JPG" class="w-full h-48 object-cover group-hover:scale-105 transition" alt="Thực tế 4">
                     </a>
                 </div>
                 <div class="rounded-3xl overflow-hidden relative group cursor-pointer">
-                    <a href="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0099.JPG" data-fslightbox="ttl-gallery">
+                    <a href="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0099.JPG" class="glightbox">
                         <img src="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0099.JPG" class="w-full h-48 object-cover group-hover:scale-105 transition" alt="Thực tế 5">
                     </a>
                 </div>
                 <div class="rounded-3xl overflow-hidden relative group cursor-pointer">
-                    <a href="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0100.JPG" data-fslightbox="ttl-gallery">
+                    <a href="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0100.JPG" class="glightbox">
                         <img src="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0100.JPG" class="w-full h-48 object-cover group-hover:scale-105 transition" alt="Thực tế 6">
                     </a>
                 </div>
                 <div class="rounded-3xl overflow-hidden relative group cursor-pointer">
-                    <a href="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0102.JPG" data-fslightbox="ttl-gallery">
+                    <a href="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0102.JPG" class="glightbox">
                         <img src="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0102.JPG" class="w-full h-48 object-cover group-hover:scale-105 transition" alt="Thực tế 7">
                     </a>
                 </div>
                 <div class="rounded-3xl overflow-hidden relative group cursor-pointer">
-                    <a href="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0103.JPG" data-fslightbox="ttl-gallery">
+                    <a href="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0103.JPG" class="glightbox">
                         <img src="assets/ttl-document/ẢNH VÀ VIDEO GỐC/DJI_0103.JPG" class="w-full h-48 object-cover group-hover:scale-105 transition" alt="Thực tế 8">
                     </a>
                 </div>
