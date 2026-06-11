@@ -197,9 +197,7 @@
                 </div>
             </div>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button class="w-full sm:w-auto bg-white text-slate-900 px-8 py-4 rounded-full font-semibold hover:bg-slate-100 transition shadow-xl">
-                    Khám Phá Dự Án
-                </button>
+                <button onclick="document.getElementById('video-modal').classList.add('active')" class="w-full sm:w-auto bg-white text-slate-900 px-8 py-4 rounded-full font-semibold hover:bg-slate-100 transition shadow-xl">Khám Phá Dự Án</button>
                 <button class="w-full sm:w-auto glass-panel text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition">
                     Tải File Trình Chiếu (PDF)
                 </button>
@@ -209,7 +207,7 @@
 
 
     <!-- Video Section -->
-    <section class="py-24 bg-slate-900/80 relative overflow-hidden">
+    <section class="py-24 bg-slate-900/80 relative overflow-hidden" id="video-intro">
         <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/50 to-slate-900"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="text-center mb-12">
@@ -220,7 +218,8 @@
                 <div class="rounded-4xl overflow-hidden shadow-2xl glass-panel p-2">
                     <div class="relative" style="padding-bottom: 56.25%; height: 0;">
                         <iframe 
-                            src="https://drive.google.com/file/d/1w_J7bAKNKWut7FYFGlFRV13GpHj1LNCX/preview" 
+                            id="main-video"
+                            src="https://drive.google.com/file/d/1w_J7bAKNKWut7FYFGlFRV13GpHj1LNCX/preview?autoplay=1&mute=1" 
                             class="absolute top-0 left-0 w-full h-full rounded-3xl"
                             allow="autoplay; fullscreen"
                             allowfullscreen
@@ -231,6 +230,324 @@
             </div>
         </div>
     </section>
+
+
+
+    <!-- Thư Viện Video -->
+    <section id="video-gallery" class="py-24 bg-slate-800/30 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">THƯ VIỆN VIDEO</h2>
+                <p class="text-slate-400">Tổng hợp video về Prima Bay Hạ Long và Halong Marina</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Siêu kết nối HN - Prima Bay -->
+                <div class="glass-panel rounded-4xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+                    <div class="relative cursor-pointer" onclick="openVideoModal('15zCnNk4LGBet349QcleP9wV3JSayzTcK', 'Siêu kết nối HN - Prima Bay')">
+                        <div class="aspect-video bg-slate-700 relative overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=15zCnNk4LGBet349QcleP9wV3JSayzTcK&sz=w640" class="w-full h-full object-cover" alt="Siêu kết nối HN - Prima Bay" onerror="this.src='https://via.placeholder.com/640x360/1e293b/38bdf8?text=Prima+Bay+Video'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-white font-semibold text-lg line-clamp-2">Siêu kết nối HN - Prima Bay</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BIM_PrimaBay_Tầm nhìn đa lớp_1 -->
+                <div class="glass-panel rounded-4xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+                    <div class="relative cursor-pointer" onclick="openVideoModal('110RjFpta5LP9WGWVu43Kr75LhCHux2Oh', 'BIM_PrimaBay_Tầm nhìn đa lớp_1')">
+                        <div class="aspect-video bg-slate-700 relative overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=110RjFpta5LP9WGWVu43Kr75LhCHux2Oh&sz=w640" class="w-full h-full object-cover" alt="BIM_PrimaBay_Tầm nhìn đa lớp_1" onerror="this.src='https://via.placeholder.com/640x360/1e293b/38bdf8?text=Prima+Bay+Video'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-white font-semibold text-lg line-clamp-2">BIM_PrimaBay_Tầm nhìn đa lớp_1</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prima logo -->
+                <div class="glass-panel rounded-4xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+                    <div class="relative cursor-pointer" onclick="openVideoModal('18MfPHwwr2xVA65wX_j6MPmRzIL1mg0LT', 'Prima logo')">
+                        <div class="aspect-video bg-slate-700 relative overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=18MfPHwwr2xVA65wX_j6MPmRzIL1mg0LT&sz=w640" class="w-full h-full object-cover" alt="Prima logo" onerror="this.src='https://via.placeholder.com/640x360/1e293b/38bdf8?text=Prima+Bay+Video'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-white font-semibold text-lg line-clamp-2">Prima logo</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nhịp sống Prima Bay -->
+                <div class="glass-panel rounded-4xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+                    <div class="relative cursor-pointer" onclick="openVideoModal('1Da0hxvNjDxLcky2SelHxkObmVg92c7Y7', 'Nhịp sống Prima Bay')">
+                        <div class="aspect-video bg-slate-700 relative overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=1Da0hxvNjDxLcky2SelHxkObmVg92c7Y7&sz=w640" class="w-full h-full object-cover" alt="Nhịp sống Prima Bay" onerror="this.src='https://via.placeholder.com/640x360/1e293b/38bdf8?text=Prima+Bay+Video'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-white font-semibold text-lg line-clamp-2">Nhịp sống Prima Bay</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clip ra mắt logo Prima Bay -->
+                <div class="glass-panel rounded-4xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+                    <div class="relative cursor-pointer" onclick="openVideoModal('1UzJ7ELxavlhJ6pWIiYOVJ3T1v5zHNP2p', 'Clip ra mắt logo Prima Bay')">
+                        <div class="aspect-video bg-slate-700 relative overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=1UzJ7ELxavlhJ6pWIiYOVJ3T1v5zHNP2p&sz=w640" class="w-full h-full object-cover" alt="Clip ra mắt logo Prima Bay" onerror="this.src='https://via.placeholder.com/640x360/1e293b/38bdf8?text=Prima+Bay+Video'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-white font-semibold text-lg line-clamp-2">Clip ra mắt logo Prima Bay</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prima Bay_Nơi mọi trải nghiệm bắt đầu -->
+                <div class="glass-panel rounded-4xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+                    <div class="relative cursor-pointer" onclick="openVideoModal('1lrGDjXf0rEeS2SNrKuOfTXN8BXlf3KGh', 'Prima Bay_Nơi mọi trải nghiệm bắt đầu')">
+                        <div class="aspect-video bg-slate-700 relative overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=1lrGDjXf0rEeS2SNrKuOfTXN8BXlf3KGh&sz=w640" class="w-full h-full object-cover" alt="Prima Bay_Nơi mọi trải nghiệm bắt đầu" onerror="this.src='https://via.placeholder.com/640x360/1e293b/38bdf8?text=Prima+Bay+Video'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-white font-semibold text-lg line-clamp-2">Prima Bay_Nơi mọi trải nghiệm bắt đầu</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prima Bay_Tầm nhìn đa lớp -->
+                <div class="glass-panel rounded-4xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+                    <div class="relative cursor-pointer" onclick="openVideoModal('1tCLvTOe-VjALFXvJsx6fO_a5TMOiMsUy', 'Prima Bay_Tầm nhìn đa lớp')">
+                        <div class="aspect-video bg-slate-700 relative overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=1tCLvTOe-VjALFXvJsx6fO_a5TMOiMsUy&sz=w640" class="w-full h-full object-cover" alt="Prima Bay_Tầm nhìn đa lớp" onerror="this.src='https://via.placeholder.com/640x360/1e293b/38bdf8?text=Prima+Bay+Video'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-white font-semibold text-lg line-clamp-2">Prima Bay_Tầm nhìn đa lớp</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Giá trị bền vững của Halong Marina -->
+                <div class="glass-panel rounded-4xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+                    <div class="relative cursor-pointer" onclick="openVideoModal('1O8xeh1jZLWlWIFeSQlge4Jr5xBJuDgot', 'Giá trị bền vững của Halong Marina')">
+                        <div class="aspect-video bg-slate-700 relative overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=1O8xeh1jZLWlWIFeSQlge4Jr5xBJuDgot&sz=w640" class="w-full h-full object-cover" alt="Giá trị bền vững của Halong Marina" onerror="this.src='https://via.placeholder.com/640x360/1e293b/38bdf8?text=Prima+Bay+Video'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-white font-semibold text-lg line-clamp-2">Giá trị bền vững của Halong Marina</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dư địa phát triển Halong Marina -->
+                <div class="glass-panel rounded-4xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+                    <div class="relative cursor-pointer" onclick="openVideoModal('1iF1w6c-83R0DlWcqt3rpqSkoz6LXQzE4', 'Dư địa phát triển Halong Marina')">
+                        <div class="aspect-video bg-slate-700 relative overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=1iF1w6c-83R0DlWcqt3rpqSkoz6LXQzE4&sz=w640" class="w-full h-full object-cover" alt="Dư địa phát triển Halong Marina" onerror="this.src='https://via.placeholder.com/640x360/1e293b/38bdf8?text=Prima+Bay+Video'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-white font-semibold text-lg line-clamp-2">Dư địa phát triển Halong Marina</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 0517 -->
+                <div class="glass-panel rounded-4xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+                    <div class="relative cursor-pointer" onclick="openVideoModal('19ZtSfOXr-5OaYf0BBUN1VHhpIvKbdhFR', '0517')">
+                        <div class="aspect-video bg-slate-700 relative overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=19ZtSfOXr-5OaYf0BBUN1VHhpIvKbdhFR&sz=w640" class="w-full h-full object-cover" alt="0517" onerror="this.src='https://via.placeholder.com/640x360/1e293b/38bdf8?text=Prima+Bay+Video'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-white font-semibold text-lg line-clamp-2">0517</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 0515 -->
+                <div class="glass-panel rounded-4xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+                    <div class="relative cursor-pointer" onclick="openVideoModal('1bInjFQCCh2UhjD8U8EXHA3rq-jkOieAq', '0515')">
+                        <div class="aspect-video bg-slate-700 relative overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=1bInjFQCCh2UhjD8U8EXHA3rq-jkOieAq&sz=w640" class="w-full h-full object-cover" alt="0515" onerror="this.src='https://via.placeholder.com/640x360/1e293b/38bdf8?text=Prima+Bay+Video'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-white font-semibold text-lg line-clamp-2">0515</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 0516 -->
+                <div class="glass-panel rounded-4xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+                    <div class="relative cursor-pointer" onclick="openVideoModal('1QA4_r_RDYyvXacYyBl3ot_L5E7ktQ2Tq', '0516')">
+                        <div class="aspect-video bg-slate-700 relative overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=1QA4_r_RDYyvXacYyBl3ot_L5E7ktQ2Tq&sz=w640" class="w-full h-full object-cover" alt="0516" onerror="this.src='https://via.placeholder.com/640x360/1e293b/38bdf8?text=Prima+Bay+Video'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-white font-semibold text-lg line-clamp-2">0516</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Gallery Modal -->
+    <div id="gallery-video-modal" class="modal fixed inset-0 bg-black/95 backdrop-blur-sm z-[100] items-center justify-center p-4">
+        <div class="relative max-w-6xl w-full">
+            <button onclick="closeGalleryVideoModal()" class="absolute -top-12 right-0 text-white hover:text-primary text-4xl font-bold z-[101]">&times;</button>
+            <div class="text-center mb-4">
+                <h3 id="gallery-video-title" class="text-2xl font-bold text-white"></h3>
+            </div>
+            <div class="rounded-4xl overflow-hidden shadow-2xl">
+                <div class="relative" style="padding-bottom: 56.25%; height: 0;">
+                    <iframe 
+                        id="gallery-video-iframe"
+                        src="" 
+                        class="absolute top-0 left-0 w-full h-full"
+                        allow="autoplay; fullscreen"
+                        allowfullscreen
+                        style="border: none;">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openVideoModal(videoId, videoName) {
+            const modal = document.getElementById('gallery-video-modal');
+            const iframe = document.getElementById('gallery-video-iframe');
+            const title = document.getElementById('gallery-video-title');
+            
+            iframe.src = 'https://drive.google.com/file/d/' + videoId + '/preview?autoplay=1';
+            title.textContent = videoName;
+            modal.classList.add('active');
+        }
+        
+        function closeGalleryVideoModal() {
+            const modal = document.getElementById('gallery-video-modal');
+            const iframe = document.getElementById('gallery-video-iframe');
+            
+            iframe.src = '';
+            modal.classList.remove('active');
+        }
+
+        // Auto play main video when scrolled into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const iframe = document.getElementById('main-video');
+                if (entry.isIntersecting) {
+                    // Video in view - already has autoplay in src
+                } else {
+                    // Video out of view - pause by resetting src without autoplay
+                    if (iframe.src.includes('autoplay=1')) {
+                        iframe.src = iframe.src.replace('autoplay=1', 'autoplay=0');
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const videoSection = document.getElementById('video-intro');
+        if (videoSection) {
+            observer.observe(videoSection);
+        }
+    </script>
 
     <!-- Project Info Cards -->
     <section id="tong-quan" class="py-24 relative -mt-20 z-20">
@@ -432,9 +749,7 @@
             </div>
             
             <div class="mt-12 text-center">
-                <button class="glass-panel text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition">
-                    Tải File Trình Chiếu Mặt Bằng (PDF)
-                </button>
+                <button onclick="document.getElementById('contact-modal').classList.add('active')" class="glass-panel text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition">Đăng Ký Nhận Tài Liệu</button>
             </div>
         </div>
     </section>
@@ -723,7 +1038,7 @@
                         </li>
                         <li class="flex items-center gap-3">
                             <span class="text-primary">📧</span>
-                            <span><a href="mailto:cong.daianland@gmail.com" class="hover:text-white transition">cong.daianland@gmail.com</a></span>
+                            <span><a href="mailto:congnt@trungthucland.vn" class="hover:text-white transition">congnt@trungthucland.vn</a></span>
                         </li>
                     </ul>
                 </div>
@@ -759,6 +1074,26 @@
             </div>
         </div>
     </footer>
+
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="modal fixed inset-0 bg-black/90 backdrop-blur-sm z-[100] items-center justify-center p-4">
+        <div class="relative max-w-6xl w-full">
+            <button onclick="document.getElementById('video-modal').classList.remove('active'); document.getElementById('modal-video-iframe').src = document.getElementById('modal-video-iframe').src;" class="absolute -top-12 right-0 text-white hover:text-primary text-4xl font-bold z-[101]">&times;</button>
+            <div class="rounded-4xl overflow-hidden shadow-2xl">
+                <div class="relative" style="padding-bottom: 56.25%; height: 0;">
+                    <iframe 
+                        id="modal-video-iframe"
+                        src="https://drive.google.com/file/d/1w_J7bAKNKWut7FYFGlFRV13GpHj1LNCX/preview" 
+                        class="absolute top-0 left-0 w-full h-full"
+                        allow="autoplay; fullscreen"
+                        allowfullscreen
+                        style="border: none;">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Contact Modal -->
 
