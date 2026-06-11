@@ -137,7 +137,7 @@
         <div class="flex justify-between items-center">
             <div class="text-2xl font-bold tracking-tighter text-white">PRIMA <span class="text-primary">BAY</span></div>
             <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
-                <a href="#video-gallery" class="hover:text-white transition">Thư Viện Video</a>
+                <a href="#video-intro" class="hover:text-white transition">Thư Viện Video</a>
                 <a href="#tong-quan" class="hover:text-white transition">Tổng Quan</a>
                 <a href="#vi-tri" class="hover:text-white transition">Vị Trí</a>
                 <a href="#san-pham" class="hover:text-white transition">Sản Phẩm</a>
@@ -202,8 +202,43 @@
         </div>
     </section>
 
+    <!-- Video Section -->
+    <section class="py-24 bg-slate-900/80 relative overflow-hidden" id="video-intro">
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/50 to-slate-900"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Video Giới Thiệu Dự Án</h2>
+                <p class="text-slate-400">Khám phá Prima Bay Hạ Long qua video</p>
+            </div>
+            <div class="max-w-5xl mx-auto">
+                <div class="rounded-4xl overflow-hidden shadow-2xl glass-panel p-2">
+                    <div class="relative" style="padding-bottom: 56.25%; height: 0;">
+                        <iframe 
+                            id="main-video"
+                            src="https://drive.google.com/file/d/1w_J7bAKNKWut7FYFGlFRV13GpHj1LNCX/preview?autoplay=1&mute=1" 
+                            class="absolute top-0 left-0 w-full h-full rounded-3xl"
+                            allow="autoplay; fullscreen"
+                            allowfullscreen
+                            style="border: none;">
+                        </iframe>
+                    </div>
+                </div>
+                        <div class="text-center mt-10">
+                <button onclick="toggleVideoGallery()" id="toggle-gallery-btn" class="bg-primary hover:bg-sky-400 text-white px-10 py-4 rounded-full font-bold text-lg transition shadow-xl shadow-primary/30 inline-flex items-center gap-3">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                    <span id="gallery-btn-text">Xem Thêm Video</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
     <!-- Thư Viện Video -->
-    <section id="video-gallery" class="py-24 bg-slate-800/30 relative">
+    <section id="video-gallery" class="py-24 bg-slate-800/30 relative" style="display: none;">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4">THƯ VIỆN VIDEO</h2>
@@ -517,31 +552,6 @@
             observer.observe(videoSection);
         }
     </script>
-
-    <!-- Video Section -->
-    <section class="py-24 bg-slate-900/80 relative overflow-hidden" id="video-intro">
-        <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/50 to-slate-900"></div>
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Video Giới Thiệu Dự Án</h2>
-                <p class="text-slate-400">Khám phá Prima Bay Hạ Long qua video</p>
-            </div>
-            <div class="max-w-5xl mx-auto">
-                <div class="rounded-4xl overflow-hidden shadow-2xl glass-panel p-2">
-                    <div class="relative" style="padding-bottom: 56.25%; height: 0;">
-                        <iframe 
-                            id="main-video"
-                            src="https://drive.google.com/file/d/1w_J7bAKNKWut7FYFGlFRV13GpHj1LNCX/preview?autoplay=1&mute=1" 
-                            class="absolute top-0 left-0 w-full h-full rounded-3xl"
-                            allow="autoplay; fullscreen"
-                            allowfullscreen
-                            style="border: none;">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Project Info Cards -->
     <section id="tong-quan" class="py-24 relative -mt-20 z-20">
@@ -1175,6 +1185,29 @@
     </script>
 
     <script src="init-lightbox.js"></script>
+
+    <script>
+        function toggleVideoGallery() {
+            const gallery = document.getElementById('video-gallery');
+            const btn = document.getElementById('toggle-gallery-btn');
+            const btnText = document.getElementById('gallery-btn-text');
+            
+            if (gallery.style.display === 'none') {
+                gallery.style.display = 'block';
+                btnText.textContent = 'Ẩn Thư Viện Video';
+                // Smooth scroll to gallery
+                setTimeout(() => {
+                    gallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            } else {
+                gallery.style.display = 'none';
+                btnText.textContent = 'Xem Thêm Video';
+                // Scroll back to video intro
+                document.getElementById('video-intro').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+
 </body>
 </html>
 <!-- Update trigger Wed Jun 10 12:24:53 AM EDT 2026 -->
