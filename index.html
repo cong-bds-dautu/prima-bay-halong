@@ -131,19 +131,17 @@
             });
         });
     </script>
-</head>
-<body class="bg-slate-900 text-slate-100 antialiased overflow-x-hidden">
+</head><body class="bg-slate-900 text-slate-100 antialiased overflow-x-hidden">
 
-    <!-- Navbar -->
     <nav class="fixed w-full z-50 glass-panel border-b-0 rounded-b-3xl mt-0 px-6 py-4 mx-auto max-w-7xl inset-x-0 top-4 transition-all duration-300">
         <div class="flex justify-between items-center">
             <div class="text-2xl font-bold tracking-tighter text-white">PRIMA <span class="text-primary">BAY</span></div>
             <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
+                <a href="#video-gallery" class="hover:text-white transition">Thư Viện Video</a>
                 <a href="#tong-quan" class="hover:text-white transition">Tổng Quan</a>
                 <a href="#vi-tri" class="hover:text-white transition">Vị Trí</a>
-                <a href="#mat-bang" class="hover:text-white transition">Mặt Bằng</a>
-                <a href="#ket-cau" class="hover:text-white transition">Cấu Trúc</a>
-                <a href="#thu-vien" class="hover:text-white transition">Thư Viện</a>
+                <a href="#san-pham" class="hover:text-white transition">Sản Phẩm</a>
+                <a href="#tien-ich" class="hover:text-white transition">Tiện Ích</a>
             </div>
             <button class="bg-primary hover:bg-sky-400 text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg shadow-sky-500/30" onclick="document.getElementById('contact-modal').classList.add('active')">
                 Nhận Báo Giá
@@ -151,7 +149,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="assets/01-pb-overview.jpg" alt="Prima Bay Overview" class="w-full h-full object-cover opacity-40">
@@ -204,34 +201,6 @@
             </div>
         </div>
     </section>
-
-
-    <!-- Video Section -->
-    <section class="py-24 bg-slate-900/80 relative overflow-hidden" id="video-intro">
-        <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/50 to-slate-900"></div>
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Video Giới Thiệu Dự Án</h2>
-                <p class="text-slate-400">Khám phá Prima Bay Hạ Long qua video</p>
-            </div>
-            <div class="max-w-5xl mx-auto">
-                <div class="rounded-4xl overflow-hidden shadow-2xl glass-panel p-2">
-                    <div class="relative" style="padding-bottom: 56.25%; height: 0;">
-                        <iframe 
-                            id="main-video"
-                            src="https://drive.google.com/file/d/1w_J7bAKNKWut7FYFGlFRV13GpHj1LNCX/preview?autoplay=1&mute=1" 
-                            class="absolute top-0 left-0 w-full h-full rounded-3xl"
-                            allow="autoplay; fullscreen"
-                            allowfullscreen
-                            style="border: none;">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
 
     <!-- Thư Viện Video -->
     <section id="video-gallery" class="py-24 bg-slate-800/30 relative">
@@ -549,6 +518,31 @@
         }
     </script>
 
+    <!-- Video Section -->
+    <section class="py-24 bg-slate-900/80 relative overflow-hidden" id="video-intro">
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/50 to-slate-900"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Video Giới Thiệu Dự Án</h2>
+                <p class="text-slate-400">Khám phá Prima Bay Hạ Long qua video</p>
+            </div>
+            <div class="max-w-5xl mx-auto">
+                <div class="rounded-4xl overflow-hidden shadow-2xl glass-panel p-2">
+                    <div class="relative" style="padding-bottom: 56.25%; height: 0;">
+                        <iframe 
+                            id="main-video"
+                            src="https://drive.google.com/file/d/1w_J7bAKNKWut7FYFGlFRV13GpHj1LNCX/preview?autoplay=1&mute=1" 
+                            class="absolute top-0 left-0 w-full h-full rounded-3xl"
+                            allow="autoplay; fullscreen"
+                            allowfullscreen
+                            style="border: none;">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Project Info Cards -->
     <section id="tong-quan" class="py-24 relative -mt-20 z-20">
         <div class="max-w-7xl mx-auto px-6">
@@ -583,6 +577,8 @@
             </div>
         </div>
     </section>
+
+    
 
     <!-- Visual Showcase -->
     <section id="thu-vien" class="py-24">
@@ -632,6 +628,8 @@
             </div>
         </div>
     </section>
+
+    
 
     <!-- Vị Trí Ấn Tượng -->
     <section id="vi-tri" class="py-24 relative overflow-hidden">
@@ -694,6 +692,8 @@
 
 
 
+    
+
     <!-- Floor Plans -->
     <section id="mat-bang" class="py-24 bg-slate-900/50">
         <div class="max-w-7xl mx-auto px-6">
@@ -755,6 +755,8 @@
     </section>
 
     
+    
+
     <!-- Sản Phẩm Mới (Theo primahalong.com) -->
     <section id="san-pham" class="py-24 bg-slate-900/60">
         <div class="max-w-7xl mx-auto px-6">
@@ -852,6 +854,7 @@
                 <p class="text-slate-300 leading-relaxed mb-4 text-center max-w-4xl mx-auto">Căn hộ Prima Bay Hạ Long được bàn giao theo tiêu chuẩn hoàn thiện cao cấp với phong cách hiện đại, tối ưu công năng và đề cao trải nghiệm nghỉ dưỡng ven biển. Tại Prima Bay từng căn hộ được thiết kế nhằm mang đến không gian sống sang trọng, tiện nghi và hài hòa với thiên nhiên. Mỗi căn hộ được bố trí khoa học với hệ cửa kính lớn đón ánh sáng tự nhiên, vật liệu hoàn thiện tinh tế cùng tông màu thanh lịch, tạo cảm giác rộng rãi và thoải mái. Không chỉ đáp ứng nhu cầu an cư, Prima Bay Hạ Long còn hướng đến chuẩn sống nghỉ dưỡng đẳng cấp dành cho cư dân.</p>
             </div>
 
+            <div id="tien-ich"></div>
             <!-- TIỆN ÍCH HẤP DẪN -->
             <div class="mb-16 mt-20 text-center">
                 <h3 class="text-4xl md:text-5xl font-bold text-yellow-500 mb-4 uppercase tracking-wider">TIỆN ÍCH HẤP DẪN</h3>
@@ -912,8 +915,7 @@
         </div>
     </section>
 
-
-<!-- Thực Tế Trung Thực Land -->
+    <!-- Thực Tế Trung Thực Land -->
     <section id="thuc-te" class="py-24 bg-slate-800/30">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
@@ -1001,6 +1003,8 @@
         </div>
     </section>
 
+    
+
     <!-- Footer CTA -->
     <section class="py-24 relative overflow-hidden">
         <div class="absolute inset-0 hero-gradient opacity-50"></div>
@@ -1014,6 +1018,8 @@
     </section>
 
     
+    
+
     <!-- Footer Chuyên Nghiệp -->
     <footer class="bg-slate-950 border-t border-white/10 pt-20 pb-10 mt-10">
         <div class="max-w-7xl mx-auto px-6">
@@ -1075,6 +1081,8 @@
         </div>
     </footer>
 
+
+    
 
     <!-- Video Modal -->
     <div id="video-modal" class="modal fixed inset-0 bg-black/90 backdrop-blur-sm z-[100] items-center justify-center p-4">
@@ -1170,3 +1178,4 @@
 </body>
 </html>
 <!-- Update trigger Wed Jun 10 12:24:53 AM EDT 2026 -->
+
